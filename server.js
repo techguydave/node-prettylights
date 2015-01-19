@@ -1,0 +1,1 @@
+console.log('All of the lights, all of the lights!');
