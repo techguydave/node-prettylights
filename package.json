@@ -1,0 +1,24 @@
+{
+  "name": "node-prettylights",
+  "version": "1.0.0",
+  "description": "Twitch bot to control Hue lights",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/synth3tk/node-prettylights"
+  },
+  "keywords": [
+    "twitch",
+    "hue",
+    "bot"
+  ],
+  "author": "synth3tk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/synth3tk/node-prettylights/issues"
+  },
+  "homepage": "https://github.com/synth3tk/node-prettylights"
+}
