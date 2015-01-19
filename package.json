@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/synth3tk/node-prettylights/issues"
   },
-  "homepage": "https://github.com/synth3tk/node-prettylights"
+  "homepage": "https://github.com/synth3tk/node-prettylights",
+  "dependencies": {
+    "node-hue-api": "^0.2.7",
+    "node-twitchtv": "0.0.4"
+  }
 }
