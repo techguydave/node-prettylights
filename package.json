@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/synth3tk/node-prettylights",
   "dependencies": {
-    "node-hue-api": "^0.2.7",
-    "node-twitchtv": "0.0.4"
+    "node-hue-api": "peter-murray/node-hue-api.git#dev-1.0.0",
+    "twitch-irc": "^1.1.0"
   }
 }
