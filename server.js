@@ -87,7 +87,7 @@ async.waterfall([
 var twitchBot = function(lightsApi){
 	var lightState = hue.lightState,
 	state = lightState.create();
-	var test = state.hsl
+	var test = state.hsl;
 	
 	// Twitch client options...
 	var client = new irc.client({
@@ -116,7 +116,6 @@ var twitchBot = function(lightsApi){
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights off') === 0) {
 			 lightsApi.setGroupLightState(0, {'on': false})
-			    .then()
 			    .fail(displayError)
 			    .done();
 		 }
@@ -124,8 +123,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights on') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none' })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -133,8 +131,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights white') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none' })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -142,8 +139,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights red') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 65534, 'bri': 180, 'sat': 255, 'effect': 'none' })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 65534, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -151,8 +147,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights green') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 25500, 'bri': 180, 'sat': 255, 'effect': 'none' })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 25500, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -160,8 +155,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights blue') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 46920, 'bri': 180, 'sat': 255, 'effect': 'none' })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 46920, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -169,8 +163,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights purple') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 56100, 'bri': 180, 'sat': 255, 'effect': 'none' })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 56100, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -178,8 +171,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights yellow') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 16750, 'bri': 180, 'sat': 200, 'effect': 'none'})
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 16750, 'bri': 180, 'sat': 200, 'effect': 'none', 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
@@ -187,8 +179,7 @@ var twitchBot = function(lightsApi){
 	
 	client.addListener('chat', function (channel, user, message) {
 		 if (message.indexOf('!lights pretty') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'effect': 'colorloop', 'bri': 180 })
-			    .then()
+			 lightsApi.setGroupLightState(0, { 'on': true, 'effect': 'colorloop', 'bri': 180, 'transition': 2 })
 			    .fail(displayError)
 			    .done();
 		 }
