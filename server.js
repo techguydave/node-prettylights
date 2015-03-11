@@ -103,6 +103,13 @@ var twitchBot = function(lightsApi){
 	 channels: [twitch_channels]
 	});
 	
+	var whiteState = function(){
+		 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none' }, function(err, lights){
+			 if (err) throw err;
+			 displayResult(lights);
+		 });
+	}
+	
 	// Connect to the chat server..
 	client.connect();
 	
@@ -111,86 +118,56 @@ var twitchBot = function(lightsApi){
 		if (message.indexOf('!lights help') === 0) {
 			client.say(channel, '!lights on - !lights off - !lights pretty - !lights &lt;color&gt; (white, red, blue, yellow, green, purple)');
 		}
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights off') === 0) {
-			 lightsApi.setGroupLightState(0, {'on': false})
-			    .then()
-			    .fail(displayError)
-			    .done();
+
+		 if (message.toLowerCase() === '!lights off') {
+			 lightsApi.setGroupLightState(0, {'on': false}, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights on') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === ('!lights white' || '!lights on')) {
+			 whiteState();
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights white') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === '!lights red') {
+			 whiteState();
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 65534, 'bri': 180, 'sat': 255, 'effect': 'none' }, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights red') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 65534, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === '!lights green') {
+			 whiteState();
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 25500, 'bri': 180, 'sat': 255, 'effect': 'none' }, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights green') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 25500, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === '!lights blue') {
+			 whiteState();
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 46920, 'bri': 180, 'sat': 255, 'effect': 'none' }, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights blue') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 46920, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === '!lights purple') {
+			 whiteState();
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 56100, 'bri': 180, 'sat': 255, 'effect': 'none' }, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights purple') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 56100, 'bri': 180, 'sat': 255, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === '!lights yellow') {
+			 whiteState();
+			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 16750, 'bri': 180, 'sat': 200, 'effect': 'none' }, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights yellow') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'hue': 16750, 'bri': 180, 'sat': 200, 'effect': 'none', 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
-		 }
-	});
-	
-	client.addListener('chat', function (channel, user, message) {
-		 if (message.indexOf('!lights pretty') === 0) {
-			 lightsApi.setGroupLightState(0, { 'on': true, 'effect': 'colorloop', 'bri': 180, 'transition': 2 })
-			    .then()
-			    .fail(displayError)
-			    .done();
+		 
+		 if (message.toLowerCase() === '!lights pretty') {
+			 lightsApi.setGroupLightState(0, { 'on': true, 'effect': 'colorloop', 'bri': 180 }, function(err, lights){
+				 if (err) throw err;
+			 });
 		 }
 	});
 }
