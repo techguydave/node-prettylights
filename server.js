@@ -106,7 +106,6 @@ var twitchBot = function(lightsApi){
 	var whiteState = function(){
 		 lightsApi.setGroupLightState(0, { 'on': true, 'ct': 200, 'bri': 180, 'effect': 'none' }, function(err, lights){
 			 if (err) throw err;
-			 displayResult(lights);
 		 });
 	}
 	
@@ -115,7 +114,7 @@ var twitchBot = function(lightsApi){
 	
 	// Chat event listeners
 	client.addListener('chat', function (channel, user, message) {
-		if (message.indexOf('!lights help') === 0) {
+		if (message.toLowerCase() === "!lights") {
 			client.say(channel, '!lights on - !lights off - !lights pretty - !lights &lt;color&gt; (white, red, blue, yellow, green, purple)');
 		}
 
